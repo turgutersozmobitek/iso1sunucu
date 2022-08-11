@@ -79,7 +79,7 @@ variable "catalog_name" {
     default     = "list"
 }
 
-variable "os_type" {
+variable "os_family" {
   type        = string
   description = "OS Tipi:"
   default     = "list"
