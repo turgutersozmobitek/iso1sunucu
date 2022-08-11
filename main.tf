@@ -14,7 +14,7 @@ resource "vcd_vapp_vm" "web1" {
   vapp_name        = var.vapp_name
   name             = var.vm_name
   catalog_name     = var.catalog_name
-  os_type          = var.os_type
+  os_type          = var.os_family
   hardware_version = "vmx-14"
   boot_image       = var.boot_image
   memory           = var.vm_memory
