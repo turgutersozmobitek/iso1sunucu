@@ -10,6 +10,16 @@ resource "vcd_vapp_org_network" "vappOrgNet" {
 }
 
 
+resource "vcd_independent_disk" "myNewIndependentDisk" {
+  vdc             = var.vdc_name
+  name            = var.disk_name
+  size_in_mb      = var_vm_disk_size
+  bus_type        = "paravirtual"
+}
+
+
+
+
 resource "vcd_vapp_vm" "web1" {
   vapp_name        = var.vapp_name
   name             = var.vm_name
@@ -25,12 +35,18 @@ resource "vcd_vapp_vm" "web1" {
   memory_hot_add_enabled=true
   power_on=false
 
+  
+    disk {
+    name        = vcd_independent_disk.disk1.name
+    bus_number  = 0
+    unit_number = 0
+  }
+  
     override_template_disk {
     bus_type        = "paravirtual"
     size_in_mb      = var.vm_disk_size
     bus_number      = 0
     unit_number     = 0
-    iops            = 0
   }
 
 
