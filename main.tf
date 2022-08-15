@@ -13,6 +13,7 @@ resource "vcd_vapp_org_network" "vappOrgNet" {
 resource "vcd_vapp_vm" "web1" {
   vapp_name        = var.vapp_name
   name             = var.vm_name
+  computer_name    = var.computer_name
   catalog_name     = var.catalog_name
   os_type          = var.os_family
   hardware_version = "vmx-14"
