@@ -82,11 +82,6 @@ variable "catalog_name" {
     default     = "list"
 }
 
-variable "os_familia" {
-  type        = string
-  description = "OS Family:"
-  default     = "list"
-}
 
 variable "os_family" {
   type        = string
