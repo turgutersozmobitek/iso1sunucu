@@ -3,6 +3,7 @@ variable "cd_username" {
     type        = string
     description = "vCD UserName"
 }
+
 variable "cd_password" {
     type        = string
     description = "vCD Password"
@@ -23,9 +24,7 @@ variable "vdc_name" {
     type        = string
     description = "VDC Adı:"
     default     = "list"
-
 }
-
 
 variable "vapp_name" {
     type        = string
@@ -39,7 +38,6 @@ variable "vm_name" {
 }
 
 variable "computer_name" {
-    
     type        = string
     description = "Comp.Name:*"
 }
@@ -49,7 +47,6 @@ variable "vm_description" {
     description = "MANAGED/UNMANAGED:"
     default     = "list"
 }   
-
 
 variable "vm_cpu" {
     type        = string
@@ -62,7 +59,6 @@ variable "vm_cpu_core" {
     description = "CPU Core:*"
     default     = "list"
 }
-
 
 variable "vm_memory" {
     type        = string
@@ -82,13 +78,11 @@ variable "catalog_name" {
     default     = "list"
 }
 
-
 variable "os_family" {
   type        = string
   description = "OS Tipi:"
   default     = "list"
 }
-
 
 variable "boot_image" {
   type        = string
@@ -106,11 +100,9 @@ variable "adapter_type" {
     type        = string
     description = "Adapter Type:*"
     default     = "list"
-
 }
 
 variable "vm_ip" {
     type        = string
     description = "IP Adresi:*"
 }
-
