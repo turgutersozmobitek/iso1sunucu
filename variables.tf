@@ -66,6 +66,11 @@ variable "vm_memory" {
     default     = "list"
 }
 
+variable "vm_disk_name" {
+    type        = string
+    description = "Disk Adı:*"
+}
+
 variable "vm_disk_size" {
     type        = string
     description = "Disk:*"
