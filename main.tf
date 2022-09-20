@@ -14,7 +14,7 @@ resource "vcd_independent_disk" "disk1" {
   org          = var.org_name
   vdc          = var.vdc_name
   name         = var.vm_disk_name
-  size         = var.vm_disk_size
+  size_in_mb   = var.vm_disk_size
   bus_type     = "SCSI"
   bus_sub_type = "VirtualSCSI"
 }
