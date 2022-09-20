@@ -10,13 +10,16 @@ resource "vcd_vapp_org_network" "vappOrgNet" {
 }
 
 
-resource "vcd_independent_disk" "myNewIndependentDisk" {
-  org             = var.org_name
-  vdc             = var.vdc_name
-  name            = var.vm_disk_name
-  size_in_mb      = var.vm_disk_size
-  bus_sub_type    = "SCSI"
+resource "vcd_independent_disk" "disk1" {
+  org          = var.org_name
+  vdc          = var.vdc_name
+  name         = var.vm_disk_name
+  size         = var.vm_disk_size
+  bus_type     = "SCSI"
+  bus_sub_type = "VirtualSCSI"
 }
+
+
 
 
 resource "vcd_vapp_vm" "web1" {
@@ -34,15 +37,12 @@ resource "vcd_vapp_vm" "web1" {
   memory_hot_add_enabled=true
   power_on=false
 
-
-  disk {
-    name        = var.vm_disk_name
-    vapp_name   = var.vapp_name
-    vm_name     = var.vm_name
-    bus_number  = 0
+    disk {
+    name        = vcd_independent_disk.disk1.name
+    bus_number  = 1
     unit_number = 0
   }
-
+  
 
 
   network {
