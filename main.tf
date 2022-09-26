@@ -26,8 +26,8 @@ resource "vcd_vm_internal_disk" "disk1" {
   vm_name         = var.vm_name
   bus_type        = "paravirtual"
   size_in_mb      = var.vm_disk_size
-  bus_number      = 0
-  unit_number     = 1
+  bus_number      = 1
+  unit_number     = 0
   allow_vm_reboot = true
   depends_on      = [vcd_vapp_vm.web1]
 
