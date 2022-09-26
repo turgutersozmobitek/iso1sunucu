@@ -27,7 +27,7 @@ resource "vcd_vm_internal_disk" "disk1" {
   bus_type        = "paravirtual"
   size_in_mb      = var.vm_disk_size
   bus_number      = 0
-  unit_number     = 1
+  unit_number     = 0
   depends_on      = [vcd_vapp_vm.web1]
 
 }
@@ -51,7 +51,7 @@ resource "vcd_vapp_vm" "web1" {
     disk {
     name        = var.vm_disk_name
     bus_number  = 0
-    unit_number = 1
+    unit_number = 0
   }
   
 
