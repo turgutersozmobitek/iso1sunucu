@@ -10,14 +10,26 @@ resource "vcd_vapp_org_network" "vappOrgNet" {
 }
 
 
-resource "vcd_independent_disk" "disk1" {
-  org          = var.org_name
-  vdc          = var.vdc_name
-  name         = var.vm_disk_name
-  size_in_mb   = var.vm_disk_size
-  bus_type     = "SCSI"
-  bus_sub_type = "VirtualSCSI"
+#resource "vcd_independent_disk" "disk1" {
+ # org          = var.org_name
+ # vdc          = var.vdc_name
+ # name         = var.vm_disk_name
+ # size_in_mb   = var.vm_disk_size
+ # bus_type     = "SCSI"
+ # bus_sub_type = "VirtualSCSI"
+#}
+
+resource "vcd_vm_internal_disk" "disk1" {
+  vapp_name       = var.vapp_name
+  vm_name         = var.vm_name
+  bus_type        = "paravirtual"
+  size_in_mb      = var.vm_disk_size
+  bus_number      = 0
+  unit_number     = 1
+  allow_vm_reboot = true
+  depends_on      = ["vcd_vapp_vm.web1"]
 }
+
 
 
 
