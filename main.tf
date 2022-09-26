@@ -38,7 +38,7 @@ resource "vcd_vapp_vm" "web1" {
   power_on=false
 
     disk {
-    name        = vcd_independent_disk.disk1.name
+    name        = var.vm_disk_name
     bus_number  = 1
     unit_number = 0
   }
